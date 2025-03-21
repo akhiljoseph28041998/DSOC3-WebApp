@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     stages {
-
-         stage('print ENV verible') {
+        stage('Print ENV') {
             steps {
                 echo 'THE PROJECT IS BUILD'
-                sh 'env printing'
+                // Use 'printenv' to print all environment variables
+                sh 'printenv'
             }
         }
         stage('Build') {
             steps {
-                echo 'THE PROJECT IS BUILD'
+                echo 'THE PROJECT IS BUILT'
             }
         }
         stage('Test') {
