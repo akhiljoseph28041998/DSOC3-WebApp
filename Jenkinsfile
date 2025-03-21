@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-    environment{
+    environment {
         ENV_VAR1 = 'env var-1 value'
         ENV_VAR2 = 'env var-2 value'
         ENV_VAR3 = 'env var-3 value'
@@ -11,33 +11,32 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'THE PROJECT IS BUILD'
-                echo 'the value of the envirnment varble : ${ ENV_VAR1}'
+                echo 'THE PROJECT IS BUILT'
+                echo "The value of the environment variable: ${ENV_VAR1}"
             }
         }
         stage('Test') {
             steps {
                 echo 'THE PROJECT IS TESTED'
-                echo 'the value of the envirnment varble : ${ ENV_VAR2}'
+                echo "The value of the environment variable: ${ENV_VAR2}"
             }
             post {
                 always {
-                    echo 'This runs always stage test'
+                    echo 'This runs always in the Test stage'
                 }
                 success {
-                    echo 'This runs on success stage test'
+                    echo 'This runs on success in the Test stage'
                 }
                 failure {
-                    echo 'This runs on failure stage test'
+                    echo 'This runs on failure in the Test stage'
                 }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'THE PROJECT IS DEPLOYED'
-                echo 'the value of the envirnment varble : ${ ENV_VAR3}'
+                echo "The value of the environment variable: ${ENV_VAR3}"
             }
         }
     }
 }
-
