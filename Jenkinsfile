@@ -17,19 +17,16 @@ pipeline {
                 echo 'THE PROJECT IS deploye'
             }
         }
+ }
+post{
+        always{
+            echo 'this run always'
+        }
+        success{
+            echo 'this run on success'
+        }
+        failure{
+            echo 'this run failed'
+        }
     }
-// post block 
-    always {
-        
-    }
-    sucess{
-        echo 'this run on sucess'
-        
-    }
-    failure{
-        echo 'this run failed'
-        
-    }
-    
-    
 }
