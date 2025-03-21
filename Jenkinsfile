@@ -7,26 +7,27 @@ pipeline {
                 echo 'THE PROJECT IS BUILD'
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
-                echo 'THE PROJECT IS tested'
+                echo 'THE PROJECT IS TESTED'
+            }
+            post {
+                always {
+                    echo 'This runs always stage test'
+                }
+                success {
+                    echo 'This runs on success stage test'
+                }
+                failure {
+                    echo 'This runs on failure stage test'
+                }
             }
         }
-         stage('deploy') {
+        stage('Deploy') {
             steps {
-                echo 'THE PROJECT IS deploye'
+                echo 'THE PROJECT IS DEPLOYED'
             }
-        }
- }
-post{
-        always{
-            echo 'this run always'
-        }
-        success{
-            echo 'this run on success'
-        }
-        failure{
-            echo 'this run failed'
         }
     }
 }
+
