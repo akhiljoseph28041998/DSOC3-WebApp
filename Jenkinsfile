@@ -12,11 +12,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'THE PROJECT IS BUILD'
+                echo 'the value of the envirnment varble : ${ ENV_VAR1}'
             }
         }
         stage('Test') {
             steps {
                 echo 'THE PROJECT IS TESTED'
+                echo 'the value of the envirnment varble : ${ ENV_VAR2}'
             }
             post {
                 always {
@@ -33,6 +35,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'THE PROJECT IS DEPLOYED'
+                echo 'the value of the envirnment varble : ${ ENV_VAR3}'
             }
         }
     }
