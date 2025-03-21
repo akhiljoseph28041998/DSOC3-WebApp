@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+
+         stage('print ENV verible') {
+            steps {
+                echo 'THE PROJECT IS BUILD'
+                sh 'env printing'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'THE PROJECT IS BUILD'
