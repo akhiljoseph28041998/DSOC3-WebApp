@@ -12,13 +12,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'THE PROJECT IS BUILT'
-                echo "The value of the environment variable: ${ENV_VAR1}"
+                //echo "The value of the environment variable: ${ENV_VAR1}"
+                sh 'echo The value of the environment variable: ${ENV_VAR1}'
             }
         }
         stage('Test') {
             steps {
                 echo 'THE PROJECT IS TESTED'
-                echo "The value of the environment variable: ${ENV_VAR2}"
+                //echo "The value of the environment variable: ${ENV_VAR2}"
+                sh 'echo The value of the environment variable: ${ENV_VAR2}'
             }
             post {
                 always {
@@ -35,7 +37,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'THE PROJECT IS DEPLOYED'
-                echo "The value of the environment variable: ${ENV_VAR3}"
+                //echo "The value of the environment variable: ${ENV_VAR3}"
+                sh 'echo The value of the environment variable: ${ENV_VAR3}'
             }
         }
     }
