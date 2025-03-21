@@ -1,40 +1,26 @@
 pipeline {
     agent any
-    
 
     stages {
         stage('Print ENV') {
             steps {
                 echo 'THE PROJECT IS BUILD'
-                // Print all environment variables
+                // Use 'printenv' to print all environment variables
                 sh 'printenv'
             }
         }
-         stage('front-end-code') {
-            steps {
-                echo 'THE PROJECT IS BUILD'
-                sh"git clone..."
-               
-            }
-        }
-         stage('backend-code') {
-            steps {
-                echo 'THE PROJECT IS BUILD'
-                 sh"git clone..."
-                
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'THE PROJECT IS BUILT'
-                
-         
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'THE PROJECT IS TESTED'
-               
+        stage('Parallel Stages') {
+            parallel {
+                stage('Build') {
+                    steps {
+                        echo 'THE PROJECT IS BUILT'
+                    }
+                }
+                stage('Test') {
+                    steps {
+                        echo 'THE PROJECT IS TESTED'
+                    }
+                }
             }
             post {
                 always {
