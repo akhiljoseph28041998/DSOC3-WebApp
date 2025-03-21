@@ -6,6 +6,7 @@ pipeline {
         ENV_VAR2 = 'env var-2 value'
         ENV_VAR3 = 'env var-3 value'
         ENV_VAR4 = 'env var-4 value'
+    }
 
     stages {
         stage('Build') {
