@@ -5,14 +5,15 @@ pipeline {
         stage('Print ENV') {
             steps {
                 echo 'THE PROJECT IS BUILD'
-                // Use 'printenv' to print all environment variables
+                // Print all environment variables
                 sh 'printenv'
             }
         }
         stage('Build') {
             steps {
                 echo 'THE PROJECT IS BUILT'
-                echo "GIT_BRANCH : ${GIT_BRANCH}"
+                // Print relevant environment variables
+                echo "GIT_BRANCH: ${GIT_BRANCH}"
                 echo "BRANCH_IS_PRIMARY: ${BRANCH_IS_PRIMARY}"
                 echo "CHANGE_ID: ${CHANGE_ID}"
                 echo "CHANGE_URL: ${CHANGE_URL}"
@@ -23,16 +24,15 @@ pipeline {
                 echo "CHANGE_FORK: ${CHANGE_FORK}"
                 echo "TAG_NAME: ${TAG_NAME}"
                 echo "TAG_TIMESTAMP: ${TAG_TIMESTAMP}"
-              
-                
             }
         }
         stage('Test') {
             steps {
                 echo 'THE PROJECT IS TESTED'
+                // Print additional environment variables
                 echo "WORKSPACE: ${WORKSPACE}"
-                echo "BUILD_ID:${BUILD_ID}"
-                echo "JOB_NAME:${JOB_NAME}"
+                echo "BUILD_ID: ${BUILD_ID}"
+                echo "JOB_NAME: ${JOB_NAME}"
             }
             post {
                 always {
