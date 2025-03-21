@@ -18,4 +18,18 @@ pipeline {
             }
         }
     }
+// post block 
+    always {
+        
+    }
+    sucess{
+        echo 'this run on sucess'
+        
+    }
+    failure{
+        echo 'this run failed'
+        
+    }
+    
+    
 }
