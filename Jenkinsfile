@@ -1,5 +1,10 @@
 pipeline {
     agent any  // Use any available agent to run the pipeline
+    environment{
+        APP_NAME='MY_APP'
+        ENVIRONMENT='production'
+        BUILD_VERSION = '1.0.0'
+    }
 
     stages {
         stage('Checkout') {  // Stage to checkout code
@@ -36,10 +41,10 @@ pipeline {
 
     post {
         success {
-            echo "Pipeline completed successfully"
+            echo "Pipeline completed successfully ${APP_NAME}"
         }
         failure {
-            echo "Pipeline failed"
+            echo "Pipeline failed ${APP_NAME}"
         }
     }
 }
