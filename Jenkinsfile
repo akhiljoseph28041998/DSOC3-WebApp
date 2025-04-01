@@ -8,27 +8,28 @@ pipeline {
             }
         }
         
-        stage('BUILDING') {  // Stage for building the application
-            steps {
-                echo 'Building stages'
-                // Add your actual build commands here, like:
-                // sh './build.sh'
-            }
-        }
+        stage('Building and Testing in Parallel') {  // Corrected stage name
+            parallel {  // Corrected 'parallel' syntax
+                stage('BUILDING') {  // Stage for building the application
+                    steps {
+                        echo 'Building the application...'
+                        // Add your actual build command here, e.g., sh './build.sh'
+                    }
+                }
 
-        stage('TESTING') {  // Stage for testing the application
-            steps {
-                echo 'Testing stages'
-                // Add your actual test commands here, like:
-                // sh './run_tests.sh'
+                stage('TESTING') {  // Stage for testing the application
+                    steps {
+                        echo 'Running tests...'
+                        // Add your actual test command here, e.g., sh './run_tests.sh'
+                    }
+                }
             }
         }
 
         stage('DEPLOYING') {  // Stage for deploying the application
             steps {
-                echo 'Deploying stages'
-                // Add your actual deploy commands here, like:
-                // sh './deploy.sh'
+                echo 'Deploying the application...'
+                // Add your actual deploy command here, e.g., sh './deploy.sh'
             }
         }
     }
