@@ -2,10 +2,22 @@ pipeline {
     agent any  // Use any available agent to run the pipeline
 
     stages {
-        stage('AKHIL JOSEPH') {  // You need to name the stage
+        stage('BUILDING') {  // You need to name the stage
             steps {
                 // Add your steps here
-                echo 'AKHIL IS UNDER STAGING'
+                echo 'building stages'
+            }
+        }
+         stage('TESTING') {  // You need to name the stage
+            steps {
+                // Add your steps here
+                echo 'testing stages'
+            }
+        }
+         stage('DEPLOYE') {  // You need to name the stage
+            steps {
+                // Add your steps here
+                echo 'deploying stages'
             }
         }
     }
