@@ -21,4 +21,12 @@ pipeline {
             }
         }
     }
+    post{
+        success{
+            echo "pipeline  complited successfuly "
+        }
+        failure{
+            echo "pipleline failure" 
+        }
+    }
 }
